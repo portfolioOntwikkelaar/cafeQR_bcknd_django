@@ -6,7 +6,7 @@ from . import models, serializers
 class PlaceList(generics.ListCreateAPIView):
   serializer_class = serializers.PlaceSerializer
 
-  def get_query(self):
+  def get_queryset(self):
     return models.Place.objects.filter(owner_id=self.request.user.id)
 
   def perform_create(self, seralizer):
