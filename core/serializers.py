@@ -1,6 +1,11 @@
 from rest_framework import serializers
 from . import models 
 
+class PlaceSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = models.Place
+    fields = ('id', 'name', 'image')
+
 class MenuItemSerializer(serializers.ModelSerializer):
   class Meta:
     model = models.MenuItem
@@ -20,7 +25,3 @@ class PlaceDetailSerializer(serializers.ModelSerializer):
     model = models.Place
     fields = ('id', 'name', 'image', 'number_of_tables', 'categories')
 
-class PlaceSerializer(serializers.ModelSerializer):
-  class Meta:
-    model = models.Place
-    fields = ('id', 'name', 'image')
