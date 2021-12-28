@@ -22,7 +22,7 @@ class PlaceOwnerOrReadOnly(permissions.BasePermission):
             return True
 
         # Write permissions are only allowed to the owner of the place.
-        return obj.owner == request.user
+        return obj.place.owner == request.user
 
     def has_permission(self, request, view):
       try:
